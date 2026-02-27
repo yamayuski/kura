@@ -1,33 +1,17 @@
 import { serve } from "bun"
+import { websocket } from "hono/bun"
 import index from "./index.html"
+import fetch from "./server/fetch"
 
 const server = serve({
     routes: {
         // Serve index.html for all unmatched routes.
-        "/*": index,
-
-        "/api/hello": {
-            async GET(_req) {
-                return Response.json({
-                    message: "Hello, world!",
-                    method: "GET",
-                })
-            },
-            async PUT(_req) {
-                return Response.json({
-                    message: "Hello, world!",
-                    method: "PUT",
-                })
-            },
-        },
-
-        "/api/hello/:name": async (req) => {
-            const name = req.params.name
-            return Response.json({
-                message: `Hello, ${name}!`,
-            })
-        },
+        "/": index,
+        "/index.html": index,
     },
+
+    fetch,
+    websocket,
 
     development: process.env.NODE_ENV !== "production" && {
         // Enable browser hot reloading in development

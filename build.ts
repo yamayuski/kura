@@ -34,8 +34,8 @@ Example:
 }
 
 const toCamelCase = (str: string): string =>
-    // @ts-ignore
-    str.replace(/-([a-z])/g, (g) =>  g.length > 1 ? g[1].toUpperCase() : "")
+    // @ts-expect-error
+    str.replace(/-([a-z])/g, (g) => (g.length > 1 ? g[1].toUpperCase() : ""))
 
 const parseValue = (value: string): any => {
     if (value === "true") return true
@@ -60,7 +60,7 @@ function parseArgs(): Partial<Bun.BuildConfig> {
 
         if (arg.startsWith("--no-")) {
             const key = toCamelCase(arg.slice(5))
-            // @ts-ignore
+            // @ts-expect-error
             config[key] = false
             continue
         }
@@ -70,7 +70,7 @@ function parseArgs(): Partial<Bun.BuildConfig> {
             (i === args.length - 1 || args[i + 1]?.startsWith("--"))
         ) {
             const key = toCamelCase(arg.slice(2))
-            // @ts-ignore
+            // @ts-expect-error
             config[key] = true
             continue
         }
@@ -88,16 +88,16 @@ function parseArgs(): Partial<Bun.BuildConfig> {
         key = toCamelCase(key)
 
         if (key.includes(".")) {
-            // @ts-ignore
+            // @ts-expect-error
             const [parentKey, childKey] = key.split(".")
 
-            // @ts-ignore
+            // @ts-expect-error
             config[parentKey] = config[parentKey] || {}
 
-            // @ts-ignore
+            // @ts-expect-error
             config[parentKey][childKey] = parseValue(value)
         } else {
-            // @ts-ignore
+            // @ts-expect-error
             config[key] = parseValue(value)
         }
     }

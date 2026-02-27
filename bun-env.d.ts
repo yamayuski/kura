@@ -15,3 +15,10 @@ declare module "*.module.css" {
     const classes: { readonly [key: string]: string }
     export = classes
 }
+
+declare module "bun" {
+    interface Env {
+        GOOGLE_CLOUD_CLIENT_ID: string
+        GOOGLE_CLOUD_CLIENT_SECRET: string
+    }
+}
