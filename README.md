@@ -1,15 +1,21 @@
-# Kura - Japanese "蔵" means "warehouse" or "storehouse"
+# bun-react-tailwind-shadcn-template
 
-Kura はグループ、企業などプライベートな団体のための、セキュアな Pukiwiki-like の Markdown ドキュメント管理システムです。
+To install dependencies:
 
-## Why Kura?
+```bash
+bun install
+```
 
-### Data Ownership
+To start a development server:
 
-AI-LLM によるソースコードやドキュメントの自動生成が当たり前になった現代において、企業やグループは自分たちのデータを完全にコントロールできる環境を必要としています。 Slack や Notion のような SaaS プラットフォームは便利ですが、データは外部のサーバーに保存され、完全な所有権を持つことができません。 Kura はオンプレミスでのホスティングを可能にし、ユーザーが自分たちのデータを完全に管理できるようにします。
+```bash
+bun dev
+```
 
-自分達のデータを自分たちで管理できるようになることは、それを安全に LLM に提供し、一元的な横断検索や各種団体に適応した認可処理、ドキュメントの自動生成補助など、様々な活用方法を可能にします。
+To run for production:
 
-### Import Adapter from any Source
+```bash
+bun start
+```
 
-Slack のようなチャットツールや、 Notion のようなドキュメント管理ツール、 Confluence のようなナレッジベースは、 1 団体での利用に完結せず、複数の団体で利用されることが多いです。それらを一つに統一することは実質不可能なため、 Kura はそれらのツールを利用しながら、自分たちが管理したいデータをインポートすることで、パートナー団体や社外とのコミュニケーションロスを排除して自分達のデータを管理できるようにします。
+This project was created using `bun init` in bun v1.3.10. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
